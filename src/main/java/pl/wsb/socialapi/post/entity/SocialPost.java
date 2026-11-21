@@ -1,7 +1,11 @@
 package pl.wsb.socialapi.post.entity;
 
 import jakarta.persistence.*;
+import pl.wsb.socialapi.profile.entity.UserProfile;
+
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "social_post")
@@ -27,17 +31,31 @@ public class SocialPost {
     @Column(name = "comment_count", nullable = false)
     private Integer commentCount;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "author_profile_id", nullable = false)
+    private UserProfile author;
+
+    @ManyToMany
+    @JoinTable(
+            name = "social_post_hashtag",
+            joinColumns = @JoinColumn(name = "social_post_id"),
+            inverseJoinColumns = @JoinColumn(name = "hashtag_id")
+    )
+    private Set<Hashtag> hashtags = new HashSet<>();
+
     protected SocialPost() {
     }
 
     public SocialPost(String content, PostStatus status,
                       LocalDateTime createdAt,
-                      Integer likesCount, Integer commentCount) {
+                      Integer likesCount, Integer commentCount,
+                      UserProfile author) {
         this.content = content;
         this.status = status;
         this.createdAt = createdAt;
         this.likesCount = likesCount;
         this.commentCount = commentCount;
+        this.author = author;
     }
 
     public Long getId() {
@@ -62,5 +80,13 @@ public class SocialPost {
 
     public Integer getCommentCount() {
         return commentCount;
+    }
+
+    public UserProfile getAuthor() {
+        return author;
+    }
+
+    public Set<Hashtag> getHashtags() {
+        return hashtags;
     }
 }
