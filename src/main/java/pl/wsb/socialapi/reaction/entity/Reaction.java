@@ -1,21 +1,28 @@
 package pl.wsb.socialapi.reaction.entity;
 
 import jakarta.persistence.*;
+import pl.wsb.socialapi.post.entity.SocialPost;
+import pl.wsb.socialapi.profile.entity.UserProfile;
+
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "reaction")
+@Table(name = "reaction", uniqueConstraints = {
+        @UniqueConstraint(name = "uk_reaction_post_profile", columnNames = {"post_id", "profile_id"})
+})
 public class Reaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username", nullable = false, length = 40)
-    private String username;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "profile_id", nullable = false)
+    private UserProfile profile;
 
-    @Column(name = "post_id", nullable = false)
-    private Long postId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "post_id", nullable = false)
+    private SocialPost post;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false, length = 20)
@@ -30,11 +37,11 @@ public class Reaction {
     protected Reaction() {
     }
 
-    public Reaction(String username, Long postId,
+    public Reaction(UserProfile profile, SocialPost post,
                     ReactionType type, LocalDateTime createdAt,
                     Boolean active) {
-        this.username = username;
-        this.postId = postId;
+        this.profile = profile;
+        this.post = post;
         this.type = type;
         this.createdAt = createdAt;
         this.active = active;
@@ -44,12 +51,12 @@ public class Reaction {
         return id;
     }
 
-    public String getUsername() {
-        return username;
+    public UserProfile getProfile() {
+        return profile;
     }
 
-    public Long getPostId() {
-        return postId;
+    public SocialPost getPost() {
+        return post;
     }
 
     public ReactionType getType() {
