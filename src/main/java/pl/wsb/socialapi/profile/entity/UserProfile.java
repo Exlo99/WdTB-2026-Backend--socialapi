@@ -1,7 +1,12 @@
 package pl.wsb.socialapi.profile.entity;
 
 import jakarta.persistence.*;
+import pl.wsb.socialapi.account.domain.UserAccount;
+import pl.wsb.socialapi.post.entity.SocialPost;
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user_profile")
@@ -34,13 +39,22 @@ public class UserProfile {
     @Embedded
     private Address address;
 
+    // Each public profile belongs to one login account.
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_account_id", nullable = false, unique = true)
+    private UserAccount userAccount;
+
+    // The inverse side of SocialPost.author. mappedBy is the Java field name.
+    @OneToMany(mappedBy = "author")
+    private List<SocialPost> posts = new ArrayList<>();
+
     protected UserProfile() {
     }
 
     public UserProfile(String username, String displayName,
                        String email, String bio,
                        LocalDateTime createdAt, Boolean active,
-                       Address address) {
+                       Address address, UserAccount userAccount) {
         this.username = username;
         this.displayName = displayName;
         this.email = email;
@@ -48,6 +62,7 @@ public class UserProfile {
         this.createdAt = createdAt;
         this.active = active;
         this.address = address;
+        this.userAccount = userAccount;
     }
 
     public Long getId() {
@@ -80,5 +95,13 @@ public class UserProfile {
 
     public Address getAddress() {
         return address;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public List<SocialPost> getPosts() {
+        return posts;
     }
 }
