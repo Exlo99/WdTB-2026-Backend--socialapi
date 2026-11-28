@@ -19,3 +19,18 @@ na GitHubie małymi literami: `<właściciel>__<repozytorium>.md`. Pytania są p
 | 10 | Seansownik | [WdTB-2026-Backend--seansownik--](grupa-1-CBm_3/kabanolololo__wdtb-2026-backend--seansownik--.md) |
 | 11 | Parking | [WdTB-2026-Backend-parking](grupa-1-CBm_3/pprzadka__wdtb-2026-backend-parking.md) |
 | 12 | Sprzętownia | [WdTB-2026-Backend--sprzetownia--](grupa-1-CBm_3/pdziwinski22__wdtb-2026-backend--sprzetownia--.md) |
+
+## Grupa 2 · CBm_2
+
+| Zespół | Projekt | Plik |
+|---|---|---|
+| 1 | KMS | [WdTB-2026-Backend-kms](grupa-2-CBm_2/kacperkukula__wdtb-2026-backend-kms.md) |
+| 2 | Sprzedaż biletów | [WdTB-2026-Backend-ticket-sales](grupa-2-CBm_2/jakubkornega__wdtb-2026-backend-ticket-sales.md) |
+| 3 | Spiżarnia | [WdTB-2026-Backend-spizarnia](grupa-2-CBm_2/alojzy231__wdtb-2026-backend-spizarnia.md) |
+| 4 | Biblioteka | [WdTB-2026-Backend--biblioteka](grupa-2-CBm_2/1nineteen__wdtb-2026-backend--biblioteka.md) |
+| 5 | Czydojade | [WdTB-2026-Backend-czydojade](grupa-2-CBm_2/ekrzychu__wdtb-2026-backend-czydojade.md) |
+| 6 | FaceIT Stats | [WdTB-2026-FaceIT-Stats](grupa-2-CBm_2/lesiu909__wdtb-2026-faceit-stats.md) |
+| 7 | SocialAPI | [WdTB-2026-Backend--socialapi](grupa-2-CBm_2/exlo99__wdtb-2026-backend--socialapi.md) |
+| 8 | ITLend | [WdTB-2026-Backend-itlend](grupa-2-CBm_2/mikquolai__wdtb-2026-backend-itlend.md) |
+| 9 | Plon | [WdTB-2026-Backend-plon](grupa-2-CBm_2/patrykpng__wdtb-2026-backend-plon.md) |
+| 10 | FoodLoop | [WdTB-2026-Backend-FoodLoopApplication](grupa-2-CBm_2/brunomaruwka1__wdtb-2026-backend-foodloopapplication.md) |
