@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
-<script>try{var t=localStorage.getItem('wdtb-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<script>var t='dark';try{t=localStorage.getItem('wdtb-theme')||'dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);</script>
 </head>
 <body>
 <div class="wrap">
@@ -32,7 +32,7 @@
 <tbody>
 <tr>
 <td><strong>3</strong></td>
-<td>co najmniej 4 repozytoria (każde dla innej encji) oraz pytania <strong>P1</strong> i <strong>P2</strong> z testami</td>
+<td>co najmniej 4 repozytoria (każde dla innej encji) oraz pytania <strong>P1</strong> i <strong>P2</strong>: każde to metoda repozytorium i test, który ją wywołuje</td>
 </tr>
 <tr>
 <td><strong>4</strong></td>
@@ -40,11 +40,20 @@
 </tr>
 <tr>
 <td><strong>5</strong></td>
-<td>także co najmniej jedno repozytorium scalone do <code>main</code> przez Pull Request</td>
+<td>także co najmniej jedna gałąź (np. z Waszym repozytorium i pytaniem) scalona do <code>main</code> przez Pull Request</td>
 </tr>
 </tbody>
 </table></div>
 <p><strong>Warunek przystąpienia:</strong> zielone reguły LAB 01–03. Kto ich nie ma, zaczyna od <a href="lab03.html">LAB 03</a>.</p>
+<p><strong>Co macie zrobić</strong> (szczegóły w częściach B i C):</p>
+<ol>
+<li><strong>Start:</strong> <em>Sync fork</em>, w <code>pom.xml</code> <code>&lt;lab&gt;4&lt;/lab&gt;</code>, <em>Commit</em> i <em>Push</em>.</li>
+<li><strong>Pytania:</strong> otwórzcie plik pytań swojego zespołu (część B, krok 2). Są w nim trzy propozycje P1–P3 ułożone do Waszego schematu; możecie zamiast nich ułożyć własne pytania tego samego rodzaju.</li>
+<li><strong>Repozytoria:</strong> co najmniej 4 interfejsy <code>…Repository extends JpaRepository</code>, każdy dla innej encji, w pakiecie <code>&lt;moduł&gt;.repository</code>.</li>
+<li><strong>Odpowiedź na pytanie:</strong> dla każdego pytania <strong>jedna metoda</strong> w repozytorium (P1: nazwa metody, P2 i P3: <code>@Query</code>) i <strong>jedna klasa testowa</strong> <code>@DataJpaTest</code> z testem <code>@DisplayName("P1 …")</code>, który wywołuje tę metodę i sprawdza wynik na danych z <code>data.sql</code>.</li>
+<li><strong>Gałęzie:</strong> każda część pracy na własnej gałęzi <code>feature/…</code>, potem Pull Request do <code>main</code> i scalenie przyciskiem <em>Create a merge commit</em>.</li>
+<li><strong>Oddanie:</strong> na <code>main</code> tag <code>lab-4</code> do niedzieli 6 grudnia 2026, godz. 23:59. Ocenę wystawia przebieg „Testy i reguły” dla tego tagu (część D).</li>
+</ol>
 </blockquote>
 <p class="toc-actions"><button type="button" data-parts="open">Rozwiń wszystko</button><button type="button" data-parts="close">Zwiń wszystko</button></p>
 <ol class="agenda toc">
